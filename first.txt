@@ -1,0 +1,7 @@
+git init
+git status
+git add .
+git commit -m "本地代码提交"
+git remote add origin https://LiMeiJuanA@github.com/LiMeiJuanA/app.git
+git pull origin master
+git push origin master
