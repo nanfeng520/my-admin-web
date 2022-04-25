@@ -1,10 +1,17 @@
+<!--
+ * @Author: zuozy
+ * @Date: 2022-04-25 16:33:25
+ * @Description:开始项目的容器，容器内左侧菜单，头部菜单都在此处设置
+-->
 <template>
   <div class="app-container">
     <div class="nav-menu">
+      <!-- 左侧菜单 -->
       <HomeLeftMenu></HomeLeftMenu>
     </div>
     <div class="container">
       <div class="container-user-info"></div>
+      <!-- 头部页签 -->
       <tagsView></tagsView>
       <div class="container-content">
         <transition
@@ -47,7 +54,6 @@ export default {
   .container {
     flex: 1;
     background: #f3f5f8;
-    // padding: 0 10px;
     display: flex;
     overflow: hidden;
     flex-direction: column;

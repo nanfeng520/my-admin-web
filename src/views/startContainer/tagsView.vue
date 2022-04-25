@@ -6,7 +6,7 @@
       ref="tag"
       :class="{active:item.name === menuActive}"
       :to='item.name'
-    >{{item.meta.title}}{{item.meta.title}}</router-link>
+    >{{item.meta.title}}</router-link>
   </div>
 </template>
 
