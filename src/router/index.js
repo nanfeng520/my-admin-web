@@ -11,7 +11,7 @@ export default new Router({
     children: [
       {
         path: 'listLayout',
-        name: 'listLayout',
+        name: 'ListLayout',
         component: ()=> import('@/views/listLayout/index.vue'),
         meta: {
           title: "列表布局组件",
@@ -19,11 +19,11 @@ export default new Router({
         }
       },
       {
-        path: 'myQwzs',
-        name: 'MyQwzs',
-        component:()=> import('@/views/qwzs/index.vue') ,
+        path: 'dragInsert',
+        name: 'DragInsert',
+        component:()=> import('@/views/dragInsert/index.vue') ,
         meta: {
-          title: "忽复乘舟梦日边",
+          title: "拖拽插入示例",
           icon:"el-icon-document",
         }
       }

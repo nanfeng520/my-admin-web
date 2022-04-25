@@ -6,7 +6,7 @@
     <div class="zuo-content">
       <slot name='zuoContent'></slot>
     </div>
-    <div class="zuo-footer">
+    <div class="zuo-footer" v-if="$slots.zuoFooter">
        <slot name='zuoFooter'></slot>
     </div>
   </div>
@@ -20,6 +20,9 @@ export default {
       
     }
   },
+  created(){
+    console.log(111,this.$slots);
+  }
 }
 </script>
 
@@ -50,6 +53,8 @@ export default {
     padding: 10px;
     box-sizing: border-box;
     background: white;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 </style>
