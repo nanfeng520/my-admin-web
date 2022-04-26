@@ -1,3 +1,6 @@
+<!-- 
+  动态表单组件
+-->
 <template>
     <ul class="search-form">
       <li
@@ -22,7 +25,7 @@
       <div>
         <el-button type="primary" size='mini' @click="onSubmit">提交</el-button>
         <el-button size='mini' @click="onReset">重置</el-button>
-        
+        <slot name='operateSlot'></slot>
       </div>
     </ul>
 </template>

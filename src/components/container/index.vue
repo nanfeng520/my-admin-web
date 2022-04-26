@@ -1,3 +1,6 @@
+<!-- 
+  页面布局组件
+-->
 <template>
   <div class="zuo-container">
     <div class="zuo-header">

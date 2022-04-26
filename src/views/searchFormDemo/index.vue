@@ -1,6 +1,10 @@
 <template>
   <div class="search-form-demo">
-    <zuo-searchFrom :fields='fieldsList' @getFormData='getFormData'></zuo-searchFrom>
+    <zuo-searchFrom :fields='fieldsList' @getFormData='getFormData'>
+      <template #operateSlot>
+        <el-button size='mini'>导出</el-button>
+      </template>
+    </zuo-searchFrom>
   </div>
 </template>
 
