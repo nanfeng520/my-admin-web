@@ -26,7 +26,17 @@ export default new Router({
           title: "拖拽插入示例",
           icon:"el-icon-document",
         }
+      },
+      {
+        path: 'searchFormDemo',
+        name: 'SearchFormDemo',
+        component:()=> import('@/views/searchFormDemo/index.vue') ,
+        meta: {
+          title: "动态表单示例",
+          icon:"el-icon-document",
+        }
       }
+      
     ]
   }]
 })

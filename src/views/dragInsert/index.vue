@@ -1,30 +1,44 @@
 <template>
-  <div>
-
-    <!-- <div>{{list}}</div>
-    <div>{{list2}}</div> -->
-    <div class="ksby">
-      <ul id="demo1">
-        <li
-          v-for="item in list"
-          :key="item.id"
-        
-        >{{item.name}} {{item.children.length}}
-          
-        </li>
-      </ul>
-      <ul id="demo2">
-        <li
-          v-for="item in list2"
-          :key="item.id"
-          
-        >{{item.name}}--{{item.children.length}}
-           <ul v-if="item.children.length">
-              <li v-for="t1 in item.children" :key="t1.id">子{{t1.name}}</li>
-           </ul>
-        </li>
-      </ul>
+  <div class="drag-insert">
+    <div style="display:flex">
+      <div class="list-drag-insert-demo">
+      <h4>列表间拖拽插入</h4>
+      <div>listOne {{list.length}}</div>
+      <div>listTwo {{list2.length}}</div>
+      <div class="list-drag-insert">
+        <ul id="demo1">
+          <li
+            v-for="item in list"
+            :key="item.id"
+          >{{item.name}}</li>
+        </ul>
+        <ul id="demo2">
+          <li
+            v-for="item in list2"
+            :key="item.id"
+          >{{item.name}}</li>
+        </ul>
+      </div>
     </div>
+    <div class="list-drag-insert-demo">
+      <h4>列表内移形换位</h4>
+      <div class="list-drag-insert">
+        <ul id="demo3">
+          <li
+            v-for="item in list3"
+            :key="item.id"
+          >{{item.name}}</li>
+        </ul>
+        <ul id="demo4">
+          <li
+            v-for="item in list3"
+            :key="item.id"
+          >{{item.name}}</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+   
   </div>
 </template>
 
@@ -35,80 +49,89 @@ export default {
   data () {
     return {
       list: [
-        { name: "aim", id: '11',children:[] },
-        { name: "age", id: 22 ,children:[]},
-        { name: "heihei", id: 33,children:[] },
-        { name: 'hello', id: 44,children:[] }
+        { name: "aim", id: '11' },
+        { name: "age", id: 22 },
+        { name: "heihei", id: 33 },
+        { name: 'hello', id: 44 }
       ],
       list2: [
-        { name: "艾米", id: '55',children:[] },
-        { name: "年龄", id: 66 ,children:[]},
-        { name: "嘿嘿", id: 77 ,children:[]},
-        { name: '你好', id: 88 ,children:[]}
+        { name: "艾米", id: '55' },
+        { name: "年龄", id: 66 },
+        { name: "嘿嘿", id: 77 },
+        { name: '你好', id: 88 }
+      ],
+      list3: [
+        { name: "艾米", id: '55' },
+        { name: "年龄", id: 66 },
+        { name: "嘿嘿", id: 77 },
+        { name: '你好', id: 88 }
       ]
     }
   },
   mounted () {
-    this.initData()
+    this.initSortable()
   },
   methods: {
-    initData () {
+    initSortable () {
+      this.sortableDemo1()
+      this.sortableDemo2()
+    },
+    // demo1 列表之间的换位置
+    sortableDemo1 () {
       let dv1 = document.getElementById('demo1')
       let dv2 = document.getElementById('demo2')
-      let self = this
-       new Sortable(dv1, {
-        // group: 'dragInsert',
+
+      new Sortable(dv1, {
+        group: 'dragInsert',
         animation: 150,
-        sort:true,
-        // onSort: (evt)=> {
-        //    let some = sortable1.toArray()
-        //   console.log('sortable1',some);
-        //    console.log('sortable1',this.list);
-        // }
-        onEnd:({oldIndex,newIndex})=> {
-          console.log(oldIndex,newIndex);
-          
-          let items = this.list.splice(oldIndex,1)[0]
-          // this.list2.splice(newIndex,0,items)
-          
-          
-           this.list2[newIndex].children.push(items)
-           console.log(this.list2);
-          //  console.log(self.list2);
-          // (this.list2[newIndex].children || this.list2[newIndex].children = []).push(1)
-        
+        onEnd: ({ oldIndex, newIndex }) => {
+          console.log(oldIndex, newIndex);
+          let items = this.list.splice(oldIndex, 1)[0]
+          this.list2.splice(newIndex, 0, items)
         }
       });
-      
-       new Sortable(dv2, {
-        // group: 'dragInsert',
+
+      new Sortable(dv2, {
+        group: 'dragInsert',
         animation: 150,
-        sort:true,
-        onEnd:({oldIndex,newIndex})=> {
-          let items = this.list2.splice(oldIndex,1)[0]
-          // this.list2.splice(newIndex,0,items)
-          
-          
-           this.list[newIndex].children.push(items)
-          //  console.log(this.list2);
-          // console.log(oldIndex,newIndex);
-          // let items = this.list2.splice(oldIndex,1)[0]
-          // this.list.splice(newIndex,0,items)
-        
+        onEnd: ({ oldIndex, newIndex }) => {
+          let items = this.list2.splice(oldIndex, 1)[0]
+          this.list.splice(newIndex, 0, items)
         }
       })
-     
+    },
+    // demo2 列表之内的换位置
+    sortableDemo2 () {
+      let dv3 = document.getElementById('demo3')
+      new Sortable(dv3, {
+        animation: 150,
+        onEnd: ({ oldIndex, newIndex }) => {
+          let items = this.list3.splice(oldIndex, 1)[0]
+          this.list3.splice(newIndex, 0, items)
+        }
+      });
     }
   }
 }
 </script>
 
 <style scoped lang='scss'>
-.ksby {
+.drag-insert {
   display: flex;
-  ul > li {
-
-    margin: 10px;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  .list-drag-insert-demo {
+    border: 1px solid red;
+    padding: 10px;
+    // display: flex;
+    margin-right: 10px;
+    .list-drag-insert {
+      display: flex;
+      ul > li {
+        margin: 10px;
+      }
+    }
   }
 }
 </style>

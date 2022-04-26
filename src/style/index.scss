@@ -1,0 +1,28 @@
+.el-input {
+  padding: 0;
+  margin: 0;
+  input {
+    height: 20px;
+    line-height: 22px;
+    color: #262626;
+    font-size: 12px;
+  }
+}
+.el-input__inner {
+  border: none;
+  background: transparent;
+}
+.el-input--small .el-input__inner {
+  height: 24px;
+  line-height: 24px;
+}
+.el-button--mini {
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+  padding: 5px 12px;
+  // height: 20px;
+  // line-height: 20px;
+}
+.el-button+.el-button {
+  margin-left: 6px;
+}

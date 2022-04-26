@@ -10,7 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import store from './store/index'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-
+import '@/style/index.scss'
 Vue.component('zuo-container',Container)
 Vue.component('zuo-searchFrom',SearchFrom)
 /* eslint-disable no-new */
