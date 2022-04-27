@@ -2,45 +2,46 @@
   <div class="tags-view">
     <router-link
       v-for="(item,i) in tagsView"
-      :key="i"
       ref="tag"
+      :key="i"
       :class="{active:item.name === menuActive}"
-      :to='item.name'
-    >{{item.meta.title}}</router-link>
+      :to="item.name"
+    >{{ item.meta.title }}</router-link>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 export default {
-  name: "tagsView",
-  data () {
+  name: 'TagsView',
+  data() {
     return {
 
     }
   },
-  watch:{
-    $route(){
-       setTimeout(()=>{
-         this.moveScroll()
-       },100)
-    }
-  },
   computed: {
     ...mapState(['menuActive']),
-    tagsView () {
+    tagsView() {
       return this.$store.state.tagsView
     }
   },
-  methods:{
-    moveScroll(){
-      let tags =  this.$refs.tag
-        for (let i = 0; i < tags.length; i++) {
-           let to = tags[i].to
-          if(to === this.$route.name) {
-                tags[i].$el.scrollIntoView({behavior: 'smooth',inline:'center'})
-            }
+  watch: {
+    $route() {
+      setTimeout(() => {
+        this.moveScroll()
+      }, 100)
+    }
+  },
+
+  methods: {
+    moveScroll() {
+      const tags = this.$refs.tag
+      for (let i = 0; i < tags.length; i++) {
+        const to = tags[i].to
+        if (to === this.$route.name) {
+          tags[i].$el.scrollIntoView({ behavior: 'smooth', inline: 'center' })
         }
+      }
     }
   }
 }

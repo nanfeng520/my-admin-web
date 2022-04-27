@@ -7,19 +7,19 @@
   <div class="app-container">
     <div class="nav-menu">
       <!-- 左侧菜单 -->
-      <HomeLeftMenu></HomeLeftMenu>
+      <HomeLeftMenu />
     </div>
     <div class="container">
-      <div class="container-user-info"></div>
+      <div class="container-user-info"/>
       <!-- 头部页签 -->
-      <tagsView></tagsView>
+      <tagsView/>
       <div class="container-content">
         <transition
           name="fade-transform"
           mode="out-in"
         >
           <keep-alive :include="cacheViews">
-            <router-view :key="key"></router-view>
+            <router-view :key="key"/>
           </keep-alive>
         </transition>
       </div>
@@ -32,13 +32,13 @@ import HomeLeftMenu from './HomeLeftMenu'
 import tagsView from './tagsView.vue'
 import { mapState } from 'vuex'
 export default {
-  name: "MyRoot",
+  name: 'MyRoot',
   components: { HomeLeftMenu, tagsView },
   computed: {
     ...mapState(['cacheViews']),
-    key () {
+    key() {
       return this.$route.path
-    },
+    }
   }
 }
 </script>

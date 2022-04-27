@@ -1,8 +1,11 @@
 <template>
   <div class="search-form-demo">
-    <zuo-searchFrom :fields='fieldsList' @getFormData='getFormData'>
+    <zuo-searchFrom
+      :fields="fieldsList"
+      :init-value="initValue"
+      @getFormData="getFormData">
       <template #operateSlot>
-        <el-button size='mini'>导出</el-button>
+        <el-button size="mini">导出</el-button>
       </template>
     </zuo-searchFrom>
   </div>
@@ -10,25 +13,43 @@
 
 <script>
 export default {
-  name: "SearchFormDemo",
-  computed: {
-    fieldsList () {
-      let mockList = [
-        { label: "输入姓名", type: 'input', key: 'name', placeholder: '请输入' },
-        { label: "输入姓名", type: 'input', key: 'name2', placeholder: '请输入' },
-        { label: "输入姓名", type: 'input', key: 'name3', placeholder: '请输入' },
-        { label: "输入姓名", type: 'input', key: 'name4', placeholder: '请输入' },
-        { label: "输入姓名", type: 'input', key: 'name5', placeholder: '请输入' },
-      ]
-      return {
-        searchList: mockList,
-        selectList: [1]
+  name: 'SearchFormDemo',
+  data() {
+    return {
+      initValue: {
+        name: 123,
+        name2: 'sm1'
       }
     }
   },
-  methods:{
-    getFormData(form){
-      console.log(form);
+  computed: {
+    fieldsList() {
+      const mockList = [
+        { label: '输入姓名', type: 'input', key: 'name', placeholder: '请输入' },
+        { label: '选择性别', type: 'select', key: 'name2', placeholder: '请选择性别' },
+        { label: '输入姓名', type: 'input', key: 'name3', placeholder: '请输入' },
+        { label: '输入姓名', type: 'input', key: 'name4', placeholder: '请输入' },
+        { label: '输入姓名', type: 'input', key: 'name5', placeholder: '请输入' }
+      ]
+      return {
+        searchList: mockList,
+        selectList: {
+          name2: [
+            { label: '提交1', value: 'sm1' },
+            { label: '提交2', value: 2 },
+            { label: '提交3', value: 3 }
+          ]
+        }
+      }
+    }
+  },
+  mounted() {
+    const host = window.location.origin
+    console.log(host)
+  },
+  methods: {
+    getFormData(form) {
+      console.log(form)
     }
   }
 }

@@ -1,30 +1,30 @@
-<!-- 
+<!--
   页面布局组件
 -->
 <template>
   <div class="zuo-container">
     <div class="zuo-header">
-       <slot name='zuoHeader'></slot>
+      <slot name="zuoHeader"/>
     </div>
     <div class="zuo-content">
-      <slot name='zuoContent'></slot>
+      <slot name="zuoContent"/>
     </div>
-    <div class="zuo-footer" v-if="$slots.zuoFooter">
-       <slot name='zuoFooter'></slot>
+    <div v-if="$slots.zuoFooter" class="zuo-footer">
+      <slot name="zuoFooter"/>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ZuozyContainer",
+  name: 'ZuozyContainer',
   data() {
     return {
-      
+
     }
   },
-  created(){
-    console.log(111,this.$slots);
+  created() {
+    console.log(111, this.$slots)
   }
 }
 </script>
