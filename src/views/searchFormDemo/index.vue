@@ -7,6 +7,9 @@
       <template #operateSlot>
         <el-button size="mini">导出</el-button>
       </template>
+      <template #name5>
+        <div>  插槽内容 </div>
+      </template>
     </zuo-searchFrom>
   </div>
 </template>
@@ -29,7 +32,7 @@ export default {
         { label: '选择性别', type: 'select', key: 'name2', placeholder: '请选择性别' },
         { label: '输入姓名', type: 'input', key: 'name3', placeholder: '请输入' },
         { label: '输入姓名', type: 'input', key: 'name4', placeholder: '请输入' },
-        { label: '输入姓名', type: 'input', key: 'name5', placeholder: '请输入' }
+        { label: '插槽哦', type: 'slot', key: 'name5', placeholder: '请输入' }
       ]
       return {
         searchList: mockList,

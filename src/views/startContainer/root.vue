@@ -10,16 +10,13 @@
       <HomeLeftMenu />
     </div>
     <div class="container">
-      <div class="container-user-info"/>
+      <div class="container-user-info" />
       <!-- 头部页签 -->
-      <tagsView/>
+      <tagsView />
       <div class="container-content">
-        <transition
-          name="fade-transform"
-          mode="out-in"
-        >
+        <transition name="fade-transform" mode="out-in">
           <keep-alive :include="cacheViews">
-            <router-view :key="key"/>
+            <router-view :key="key" />
           </keep-alive>
         </transition>
       </div>
@@ -71,4 +68,3 @@ export default {
   }
 }
 </style>
-

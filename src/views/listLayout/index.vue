@@ -3,7 +3,7 @@
   <zuo-container>
     <template #zuoHeader>
       <div>
-        123
+        标题文字
       </div>
     </template>
     <template #zuoContent>
@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  name: 'MyHome',
+  name: 'ListLayout',
   data() {
     return {
       currentPage1: 5,

@@ -33,10 +33,10 @@ export default new Router({
         component: () => import('@/views/searchFormDemo/index.vue'),
         meta: {
           title: '动态表单示例',
-          icon: 'el-icon-document'
+          icon: 'el-icon-document',
+          noCache: true
         }
       }
-
     ]
   }]
 })

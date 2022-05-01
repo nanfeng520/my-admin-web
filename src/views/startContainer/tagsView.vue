@@ -5,7 +5,7 @@
       ref="tag"
       :key="i"
       :class="{active:item.name === menuActive}"
-      :to="item.name"
+      :to="item.path"
     >{{ item.meta.title }}</router-link>
   </div>
 </template>

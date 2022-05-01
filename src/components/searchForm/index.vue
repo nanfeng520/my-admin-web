@@ -33,6 +33,8 @@
           :value="item.value"/>
       </el-select>
 
+      <slot :name="item.key"/>
+
     </li>
 
     <div>
