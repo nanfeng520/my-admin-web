@@ -5,7 +5,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tagsView: [], // 标签页
-    menuActive: '', // 当前存在的页面 取name
+    menuActive: {}, // 当前存在的页面 取name
     cacheViews: [] // 缓存标签页
   },
   getters: {},
@@ -27,7 +27,7 @@ export default new Vuex.Store({
       dispatch('ADD_CACHE_VIEW', context) // 新增页签缓存
     },
     ADD_TAGS_VIEW({ state, commit }, context) {
-      const isFlag = state.tagsView.some((item) => item.name === context.name)
+      const isFlag = state.tagsView.some((item) => item.fullPath === context.fullPath)
       if (!isFlag) { // 数组内没找到就添加
         commit('ADD_TAGSVIEW', context)
       }

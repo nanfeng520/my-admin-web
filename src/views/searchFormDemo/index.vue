@@ -46,10 +46,6 @@ export default {
       }
     }
   },
-  mounted() {
-    const host = window.location.origin
-    console.log(host)
-  },
   methods: {
     getFormData(form) {
       console.log(form)

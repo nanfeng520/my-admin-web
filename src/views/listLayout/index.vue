@@ -26,6 +26,11 @@
           prop="address"
           label="地址"
         />
+        <el-table-column label="操作">
+          <template slot-scope="scope">
+            <el-button @click="goDetail(scope.row.date)">详情</el-button>
+          </template>
+        </el-table-column>
       </el-table>
     </template>
     <template #zuoFooter>
@@ -110,6 +115,14 @@ export default {
     }
   },
   methods: {
+    goDetail(id) {
+      this.$router.push({
+        name: 'ListLayoutDetail',
+        params: {
+          id: id
+        }
+      })
+    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`)
     },

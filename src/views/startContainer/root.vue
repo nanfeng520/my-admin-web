@@ -14,23 +14,20 @@
       <!-- 头部页签 -->
       <tagsView />
       <div class="container-content">
-        <transition name="fade-transform" mode="out-in">
-          <keep-alive :include="cacheViews">
-            <router-view :key="key" />
-          </keep-alive>
-        </transition>
+        <app-layout />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import AppLayout from '@/layout/index'
 import HomeLeftMenu from './HomeLeftMenu'
 import tagsView from './tagsView.vue'
 import { mapState } from 'vuex'
 export default {
   name: 'MyRoot',
-  components: { HomeLeftMenu, tagsView },
+  components: { HomeLeftMenu, tagsView, AppLayout },
   computed: {
     ...mapState(['cacheViews']),
     key() {
