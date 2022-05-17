@@ -3,7 +3,7 @@
   <zuo-container>
     <template #zuoHeader>
       <div>
-        123
+        标题文字
       </div>
     </template>
     <template #zuoContent>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'MyHome',
+  name: 'ListLayout',
   data() {
     return {
       currentPage: 1,
@@ -104,6 +104,14 @@ export default {
     }
   },
   methods: {
+    goDetail(id) {
+      this.$router.push({
+        name: 'ListLayoutDetail',
+        params: {
+          id: id
+        }
+      })
+    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`)
     },

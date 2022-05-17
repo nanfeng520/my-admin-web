@@ -4,8 +4,8 @@
       v-for="(item,i) in tagsView"
       ref="tag"
       :key="i"
-      :class="{active:item.name === menuActive}"
-      :to="item.name"
+      :class="{active:item.fullPath === menuActive.fullPath}"
+      :to="item.path"
     >{{ item.meta.title }}</router-link>
   </div>
 </template>
