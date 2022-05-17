@@ -7,26 +7,16 @@
       </div>
     </template>
     <template #zuoContent>
-      <el-table
-        :data="tableData"
-        border
-        height="100%"
-      >
-        <el-table-column
-          prop="date"
-          label="日期"
-          width="180"
-        />
-        <el-table-column
-          prop="name"
-          label="姓名"
-          width="180"
-        />
-        <el-table-column
-          prop="address"
-          label="地址"
-        />
-      </el-table>
+      <zuo-tr-table :data="tableData" :headerlist="headerlist">
+        <template #options>
+          <el-button type="text">查看</el-button>
+          <el-button type="text">编辑</el-button>
+          <el-button type="text">详情</el-button>
+        </template>
+        <template #tag>
+          <el-tag>标签一</el-tag>
+        </template>
+      </zuo-tr-table>
     </template>
     <template #zuoFooter>
       <el-pagination
@@ -49,11 +39,7 @@ export default {
   name: 'MyHome',
   data() {
     return {
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4,
-      checked: false,
+      currentPage: 1,
       tableData: [{
         date: '2016-05-03',
         name: '王小虎',
@@ -106,7 +92,15 @@ export default {
         date: '2016-05-07',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄'
-      }]
+      }],
+      headerlist: [ // table 的头部参数
+        { label: '姓名', key: 'name' },
+        { label: '日期', key: 'date' },
+        { label: '地址', key: 'address' },
+        { label: '标签', key: 'tag', custom: true },
+        { label: '操作', key: 'options', custom: true }
+      ]
+
     }
   },
   methods: {
