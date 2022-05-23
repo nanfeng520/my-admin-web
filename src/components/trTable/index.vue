@@ -22,8 +22,8 @@ export default {
       default: () => []
     },
     headerlist: {
-      type: Object,
-      default: () => {}
+      type: Array,
+      default: () => []
     }
   }
 }

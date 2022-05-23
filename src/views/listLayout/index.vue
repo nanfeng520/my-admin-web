@@ -1,5 +1,4 @@
 <template>
-
   <zuo-container>
     <template #zuoHeader>
       <div>
@@ -7,7 +6,10 @@
       </div>
     </template>
     <template #zuoContent>
-      <zuo-tr-table :data="tableData" :headerlist="headerlist">
+      <zuo-tr-table
+        :data="tableData"
+        :headerlist="headerlist"
+      >
         <template #options>
           <el-button type="text">查看</el-button>
           <el-button type="text">编辑</el-button>
@@ -20,7 +22,7 @@
     </template>
     <template #zuoFooter>
       <el-pagination
-        :current-page="currentPage4"
+        :current-page="currentPage"
         :page-sizes="[100, 200, 300, 400]"
         :page-size="100"
         :total="400"
@@ -54,42 +56,6 @@ export default {
         address: '上海市普陀区金沙江路 1518 弄'
       }, {
         date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-08',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-07',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-08',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-07',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-08',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-07',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1518 弄'
       }],
