@@ -1,7 +1,6 @@
 <!-- 每用到，逻辑都在startContainer/root.vue里。后面转移 -->
 <template>
-  <div>
-
+  <div class="app-layout">
     <transition name="fade-transform" mode="out-in">
       <keep-alive :include="cacheViews">
         <router-view :key="key" />
@@ -23,6 +22,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.app-layout {
+  height: 100%;
+}
 </style>
