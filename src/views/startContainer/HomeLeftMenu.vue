@@ -10,7 +10,7 @@
         <div v-for="item in routeList" :key="item.name">
           <!-- 判断有children 并且不需要展开操作，体现在children只有一个子级可以设置
           meta下面的firstChild 为true,就会以子级作为一级菜单 -->
-          <el-submenu v-if="item.children && !item.meta.firstChild" :index="item.name">
+          <el-submenu v-if="item.children && !item.meta.menuTypeByItem" :index="item.name">
             <template slot="title">
               <i class="el-icon-location"/>
               <span>{{ item.meta.title }}</span>
@@ -80,12 +80,9 @@ export default {
       return timer
     },
     handleMenuItem(item) {
-      let routeItem = item
-      // 申明routeItem 主要判断一级菜单不展开的情况，这个时候的item应该属于他children里面的唯一一个子级
-      if (item.meta.firstChild) {
-        routeItem = item.children[0]
-      }
-      console.log(111, item)
+      // 菜单类型为item, 一级菜单不展开，点击直接跳转路由 (路由会取children的第一项)
+      const routeItem = item.meta.menuTypeByItem ? item.children[0] : item
+
       this.$router.push({
         name: routeItem.name
       })

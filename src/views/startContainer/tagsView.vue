@@ -48,12 +48,9 @@ export default {
 </script>
 <style lang='scss' scoped>
 .tags-view {
-  //  border-bottom: 1px solid pink;
   width: 100%;
   display: flex;
   margin-bottom: 10px;
-  // height: 50px;
-  // overflow-y: hidden;
   overflow-x: auto;
   min-height: 31px;
   height: 31px;
@@ -62,17 +59,9 @@ export default {
   &::-webkit-scrollbar {
     display: none;
   }
-  // > li {
-  // min-width: 100px;
-  // margin-right: 10px;
-  // text-align: center;
-  // background: #f1f3f5;
-  // border: 1px solid #f3f5f8;
   a {
     display: block;
-    // width: 200px;
     padding: 6px 40px;
-    // box-sizing: border-box;
     color: rgba(0, 0, 0, 0.65);
     &.active {
       background: #f3f5f8;
