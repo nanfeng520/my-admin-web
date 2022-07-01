@@ -10,13 +10,13 @@
         :data="tableData"
         :headerlist="headerlist"
       >
-        <template #options>
+        <template v-slot:options="scope">
           <el-button type="text">查看</el-button>
           <el-button type="text">编辑</el-button>
-          <el-button type="text">详情</el-button>
+          <el-button type="text" @click="goDetail(scope.row)">详情</el-button>
         </template>
-        <template #tag>
-          <el-tag>标签一</el-tag>
+        <template v-slot:tag="scope">
+          <el-tag>{{ scope.row.id || '标签1' }}</el-tag>
         </template>
       </zuo-tr-table>
     </template>
@@ -70,11 +70,11 @@ export default {
     }
   },
   methods: {
-    goDetail(id) {
+    goDetail(item) {
       this.$router.push({
         name: 'ListLayoutDetail',
         params: {
-          id: id
+          id: item.date
         }
       })
     },

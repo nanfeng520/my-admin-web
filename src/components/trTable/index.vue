@@ -1,15 +1,21 @@
 <template>
   <el-table :data="data" border height="100%">
-    <el-table-column
-      v-for="(item) in headerlist"
-      :key="item.key"
-      :prop="item.key"
-      :label="item.label"
-    >
-      <template v-if="item.custom">
-        <slot :name="item.key"/>
-      </template>
-    </el-table-column>
+    <template v-for="(item) in headerlist">
+      <el-table-column
+        v-if="!item.custom"
+        :key="item.key"
+        :label="item.label"
+        :prop="item.key"
+      />
+      <el-table-column
+        v-else
+        :key="item.key"
+        :label="item.label">
+        <div slot-scope="scope">
+          <slot :name="item.key" :row="scope.row" />
+        </div>
+      </el-table-column>
+    </template>
   </el-table>
 </template>
 
@@ -30,5 +36,4 @@ export default {
 </script>
 
 <style>
-
 </style>
