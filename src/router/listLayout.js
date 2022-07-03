@@ -23,7 +23,18 @@ export default [
         hidden: true,
         component: () => import('@/views/listLayout/detail.vue'),
         meta: {
-          title: '详情'
+          title: '详情',
+          parentName: 'ListLayout'
+        }
+      },
+      {
+        path: 'listLayouAdd',
+        name: 'listLayouAdd',
+        hidden: true,
+        component: () => import('@/views/listLayout/add.vue'),
+        meta: {
+          title: '新增',
+          parentName: 'ListLayout'
         }
       },
       {

@@ -11,7 +11,7 @@
         :headerlist="headerlist"
       >
         <template v-slot:options="scope">
-          <el-button type="text">查看</el-button>
+          <el-button type="text" @click="goDetail(scope.row,true)" >查看</el-button>
           <el-button type="text">编辑</el-button>
           <el-button type="text" @click="goDetail(scope.row)">详情</el-button>
         </template>
@@ -70,9 +70,9 @@ export default {
     }
   },
   methods: {
-    goDetail(item) {
+    goDetail(item, flag) {
       this.$router.push({
-        name: 'ListLayoutDetail',
+        name: flag ? 'listLayouAdd' : 'ListLayoutDetail',
         params: {
           id: item.date
         }

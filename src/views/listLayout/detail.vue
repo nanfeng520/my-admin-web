@@ -1,10 +1,15 @@
 <template>
-  <div>{{ $route.params.id }}</div>
+  <div @click="handleDetail">{{ $route.params.id }}</div>
 </template>
 
 <script>
 export default {
-  name: 'ListLayoutDetail'
+  name: 'ListLayoutDetail',
+  methods: {
+    handleDetail() {
+
+    }
+  }
 
 }
 </script>
