@@ -4,8 +4,6 @@
       <el-menu
         :default-active="actives"
         class="el-menu-vertical-demo"
-        background-color="#545c64"
-        text-color="#fff"
       >
         <div v-for="item in routeList" :key="item.name">
           <!-- 判断有children 并且不需要展开操作，体现在children只有一个子级可以设置
@@ -41,20 +39,19 @@
 </template>
 
 <script>
-import routeList from '@/router'
+// import routeList from '@/router'
 import { mapState } from 'vuex'
 export default {
   data() {
     return {}
   },
   computed: {
-    ...mapState(['menuActive']),
+    ...mapState(['menuActive', 'menuList']),
     actives() {
       return this.menuActive.meta.parentName || this.menuActive.name
     },
     routeList() {
-      const routes = routeList.options.routes
-      return this.hideFilter(routes)
+      return this.hideFilter(this.menuList)
     }
   },
   watch: {
@@ -65,10 +62,12 @@ export default {
   },
 
   created() {
+    console.log(this.menuList)
     this.$store.commit('SET_MENU_ACTIVE', this.$route) // 存储当前的路由name
     this.$store.dispatch('ADD_TAGSVIEW_OPERATION', this.$route) // 刷新取当前路由存储
   },
   methods: {
+    // 递归过滤掉 不需要展示在menu的路由
     hideFilter(routes) {
       let timer = []
       timer = routes.filter((item) => {

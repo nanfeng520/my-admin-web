@@ -8,6 +8,7 @@ export default [
       title: '组件展示',
       icon: 'el-icon-menu'
     },
+    redirect: '/componentDisplay/listLayout',
     children: [
       {
         path: 'listLayout',

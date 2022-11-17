@@ -9,6 +9,7 @@ export default [
       icon: 'el-icon-menu',
       menuTypeByItem: true // 菜单类型为item, 一级菜单不展开，点击直接跳转路由 (路由会取children的第一项)
     },
+    redirect: '/home/homePage',
     children: [
       {
         path: 'homePage',

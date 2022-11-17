@@ -15,6 +15,7 @@ import '@/style/index.scss'
 Vue.component('zuo-container', Container)
 Vue.component('zuo-searchFrom', SearchForm)
 Vue.component('zuo-tr-table', TrTable)
+store.dispatch('SET_MENU_LIST')
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
