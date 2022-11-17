@@ -1,17 +1,6 @@
 import Layout from '@/views/startContainer/root.vue'
 export default [
   {
-    path: '/',
-    redirect: '/login',
-    hidden: true
-  },
-  {
-    path: '/login',
-    name: 'login',
-    hidden: true,
-    component: () => import('@/views/login/index.vue')
-  },
-  {
     path: '/home',
     name: 'home',
     component: Layout,
