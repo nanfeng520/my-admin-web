@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        用户名：<input type="text" id="user" >
+    </div>
+    <input type="text" placeholder="请输入消息内容" id="msg">
+    
+    <div id="apps"></div>
+    <button onclick="onSend()">
+        发送信息
+    </button>
+    <script>
+        let msg = document.querySelector('#msg')
+        let user = document.querySelector('#user')
+        let apps = document.querySelector('#apps')
+        
+        var ws = new WebSocket('ws://localhost:3000');
+        //监听建立连接
+        ws.onopen = function (res) {
+            console.log('连接成功');
+            console.log(res);
+        }
+        function onSend(){
+            ws.send(user.value+':'+msg.value)
+        }
+      
+        //监听消息
+        ws.onmessage = function (res) {
+            // console.log('客户端接收到了服务端发来的消息');
+            console.log(res.data);
+            
+            let str = document.createElement('div')
+            str.innerHTML = res.data
+            apps.appendChild(str)
+        }
+    </script>
+</body>
+
+</html>
