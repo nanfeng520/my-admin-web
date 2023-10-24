@@ -39,13 +39,14 @@ export default new Vuex.Store({
         admin: home,
         user: listLayout
       }
-      const menuList = menuToken[token]
+
+      const menuList = menuToken[token] || []
       commit('SET_MENU_LIST', menuList)
       menuList.forEach(ele => {
         router.addRoute(ele)
       })
       router.push({
-        path: menuList[0].path
+        path: menuList[0] && menuList[0].path
       })
     },
     // 新增页签操作

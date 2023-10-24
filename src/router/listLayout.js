@@ -65,7 +65,15 @@ export default [
         name: 'DragInsertList',
         component: () => import('@/views/dragInsert/index.vue'),
         meta: {
-          title: '拖拽插入示例'
+          title: '拖拽插入'
+        }
+      },
+      {
+        path: 'dragInsertList2',
+        name: 'DragInsertList2',
+        component: () => import('@/views/dragInsert/sortjsdemo.vue'),
+        meta: {
+          title: 'sort.js'
         }
       }
     ]
